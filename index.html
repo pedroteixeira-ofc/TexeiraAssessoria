@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedro Teixeira | Assessoria Empresarial Preventiva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0B132B',
+                        'brand-blue': '#1C2541',
+                        'brand-gold': '#D4AF37',
+                        'brand-silver': '#E2E8F0',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+        .gold-gradient {
+            background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .smooth-scroll { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="text-slate-800 antialiased smooth-scroll">
+
+    <!-- Navbar -->
+    <nav class="bg-brand-dark text-white p-4 sticky top-0 z-50 shadow-lg border-b border-brand-gold/20">
+        <div class="container mx-auto flex justify-between items-center">
+            
+            <!-- Logo Oficial -->
+            <div class="flex items-center justify-center">
+                <img src="image_9daec3.png" alt="Pedro Teixeira Assessoria" class="h-10 md:h-14 object-contain">
+            </div>
+
+            <div class="hidden md:flex space-x-6 text-sm tracking-wide">
+                <a href="#servicos" class="hover:text-brand-gold transition">PORTFÓLIO</a>
+                <a href="#contato" class="hover:text-brand-gold transition">CONTATO</a>
+            </div>
+            <a href="https://wa.me/5516996149778" target="_blank" class="bg-brand-gold text-brand-dark px-4 py-2 rounded font-semibold hover:bg-yellow-500 transition text-sm flex items-center">
+                <i class="fab fa-whatsapp mr-2 text-lg"></i> (16) 99614-9778
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-brand-dark text-white pt-20 pb-16 px-4 text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        
+        <div class="container mx-auto max-w-5xl relative z-10 flex flex-col items-center">
+            
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif tracking-widest mb-6">PEDRO TEIXEIRA</h1>
+            
+            <!-- Título Exato Solicitado -->
+            <h2 class="text-sm md:text-lg tracking-[0.1em] text-brand-gold mb-6 uppercase font-bold px-4 py-2 border border-brand-gold/30 bg-brand-gold/5 rounded inline-block">
+                Assessor Empresarial e Paralegal <span class="mx-2 text-white">|</span> Analista Empresarial Preventivo
+            </h2>
+            
+            <p class="text-xs md:text-sm tracking-widest text-gray-400 uppercase max-w-3xl mx-auto leading-relaxed mt-2">
+                Estratégia Empresarial <span class="mx-2 text-brand-gold">•</span> Due Diligence Imobiliária <br class="md:hidden"> 
+                <span class="hidden md:inline mx-2 text-brand-gold">•</span> Agro-negócios <span class="mx-2 text-brand-gold">•</span> Comércio Internacional
+            </p>
+
+            <div class="mt-12">
+                <a href="#servicos" class="bg-brand-gold text-brand-dark hover:bg-yellow-500 px-8 py-3 rounded uppercase tracking-wider font-bold transition text-sm shadow-[0_0_15px_rgba(212,175,55,0.4)]">
+                    Ver Soluções
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Seção de Serviços -->
+    <section id="servicos" class="py-20 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-4 uppercase tracking-wide">Áreas de <span class="gold-gradient">Atuação</span></h2>
+                <div class="w-20 h-1 bg-brand-gold mx-auto"></div>
+            </div>
+
+            <!-- Grid de Serviços -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+
+                <!-- Serviço 1: Due Diligence Imobiliária -->
+                <div class="bg-white border border-gray-200 rounded-sm shadow-md overflow-hidden group hover:shadow-xl transition duration-300 flex flex-col">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="image_933985.jpg" alt="Due Diligence Imobiliária" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-transparent"></div>
+                        <h3 class="absolute bottom-4 left-4 text-white font-serif font-bold text-xl tracking-wide drop-shadow-md">Due Diligence Imobiliária</h3>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <p class="text-gray-600 mb-6 text-sm flex-grow leading-relaxed">Levantamento documental rigoroso e mapeamento de certidões. Inteligência paralegal para garantir aquisições seguras e sem passivos ocultos.</p>
+                        <a href="https://wa.me/5516996149778?text=Olá, gostaria de saber mais sobre a Due Diligence Imobiliária." target="_blank" class="text-brand-dark font-semibold border-b border-brand-gold pb-1 inline-table hover:text-brand-gold transition uppercase text-xs tracking-wider">
+                            Solicitar Análise
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Serviço 2: Mapeamento Documental Rural -->
+                <div class="bg-white border border-gray-200 rounded-sm shadow-md overflow-hidden group hover:shadow-xl transition duration-300 flex flex-col">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="image_93399e.jpg" alt="Mapeamento Documental Rural" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-transparent"></div>
+                        <h3 class="absolute bottom-4 left-4 text-white font-serif font-bold text-xl tracking-wide drop-shadow-md">Conformidade Rural</h3>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <p class="text-gray-600 mb-6 text-sm flex-grow leading-relaxed">Auditoria de Matrícula e Sistemas Federais. Blindagem documental e preventiva para propriedades rurais e operações do agronegócio.</p>
+                        <a href="https://wa.me/5516996149778?text=Olá, gostaria de saber mais sobre a Conformidade Documental Rural." target="_blank" class="text-brand-dark font-semibold border-b border-brand-gold pb-1 inline-table hover:text-brand-gold transition uppercase text-xs tracking-wider">
+                            Solicitar Análise
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Serviço 3: Dossiê Extrajudicial -->
+                <div class="bg-white border border-gray-200 rounded-sm shadow-md overflow-hidden group hover:shadow-xl transition duration-300 flex flex-col">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="image_9339a1.jpg" alt="Dossiê Extrajudicial" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-transparent"></div>
+                        <h3 class="absolute bottom-4 left-4 text-white font-serif font-bold text-xl tracking-wide drop-shadow-md">Dossiê Extrajudicial</h3>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <p class="text-gray-600 mb-6 text-sm flex-grow leading-relaxed">Organização paralegal ágil para Inventários e Usucapião. Terceirização inteligente da burocracia cartorária para empresas, pessoas físicas e escritórios.</p>
+                        <a href="https://wa.me/5516996149778?text=Olá, gostaria de saber mais sobre a Gestão de Dossiê Extrajudicial." target="_blank" class="text-brand-dark font-semibold border-b border-brand-gold pb-1 inline-table hover:text-brand-gold transition uppercase text-xs tracking-wider">
+                            Solicitar Análise
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Serviço 4: Viabilidade de Crédito Agro -->
+                <div class="bg-white border border-gray-200 rounded-sm shadow-md overflow-hidden group hover:shadow-xl transition duration-300 flex flex-col">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="image_9339a5.jpg" alt="Viabilidade de Crédito Agro" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-transparent"></div>
+                        <h3 class="absolute bottom-4 left-4 text-white font-serif font-bold text-xl tracking-wide drop-shadow-md">Análise de Crédito Agro</h3>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <p class="text-gray-600 mb-6 text-sm flex-grow leading-relaxed">Auditoria de risco financeiro, mapeamento de protestos e blindagem de garantias. Pareceres técnicos focados na aprovação de crédito seguro.</p>
+                        <a href="https://wa.me/5516996149778?text=Olá, gostaria de saber mais sobre a Análise de Viabilidade de Crédito." target="_blank" class="text-brand-dark font-semibold border-b border-brand-gold pb-1 inline-table hover:text-brand-gold transition uppercase text-xs tracking-wider">
+                            Solicitar Análise
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Serviço 5: Conferência Pré-Registral -->
+                <div class="bg-white border border-gray-200 rounded-sm shadow-md overflow-hidden group hover:shadow-xl transition duration-300 flex flex-col">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="image_9339bc.jpg" alt="Conferência Pré-Registral" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-transparent"></div>
+                        <h3 class="absolute bottom-4 left-4 text-white font-serif font-bold text-xl tracking-wide drop-shadow-md">Conferência Pré-Registral</h3>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <p class="text-gray-600 mb-6 text-sm flex-grow leading-relaxed">Adequação formal para CPRs e contratos do agronegócio. Prevenção de notas de devolução nos cartórios e agilidade no registro de títulos.</p>
+                        <a href="https://wa.me/5516996149778?text=Olá, gostaria de saber mais sobre a Conferência Pré-Registral." target="_blank" class="text-brand-dark font-semibold border-b border-brand-gold pb-1 inline-table hover:text-brand-gold transition uppercase text-xs tracking-wider">
+                            Solicitar Análise
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Serviço 6: Regularização de CAR -->
+                <div class="bg-white border border-gray-200 rounded-sm shadow-md overflow-hidden group hover:shadow-xl transition duration-300 flex flex-col">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="image_9339c1.jpg" alt="Regularização de CAR" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-transparent"></div>
+                        <h3 class="absolute bottom-4 left-4 text-white font-serif font-bold text-xl tracking-wide drop-shadow-md">Regularização Ambiental</h3>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <p class="text-gray-600 mb-6 text-sm flex-grow leading-relaxed">Soluções administrativas e destravamento no SICAR. Correção de sobreposições de área e averbação de reserva legal com segurança.</p>
+                        <a href="https://wa.me/5516996149778?text=Olá, preciso de assessoria para Regularização de CAR." target="_blank" class="text-brand-dark font-semibold border-b border-brand-gold pb-1 inline-table hover:text-brand-gold transition uppercase text-xs tracking-wider">
+                            Solicitar Análise
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Serviço 7: Dossiê para Licitações -->
+                <div class="bg-white border border-gray-200 rounded-sm shadow-md overflow-hidden group hover:shadow-xl transition duration-300 flex flex-col">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="image_9339df.jpg" alt="Dossiê para Licitações" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-transparent"></div>
+                        <h3 class="absolute bottom-4 left-4 text-white font-serif font-bold text-xl tracking-wide drop-shadow-md">Dossiê de Licitações</h3>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <p class="text-gray-600 mb-6 text-sm flex-grow leading-relaxed">Análise técnica rigorosa de editais e organização documental completa para habilitação impecável em certames públicos e privados.</p>
+                        <a href="https://wa.me/5516996149778?text=Olá, preciso estruturar um Dossiê para Licitações." target="_blank" class="text-brand-dark font-semibold border-b border-brand-gold pb-1 inline-table hover:text-brand-gold transition uppercase text-xs tracking-wider">
+                            Solicitar Análise
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Serviço 8: Representação em Pregões -->
+                <div class="bg-white border border-gray-200 rounded-sm shadow-md overflow-hidden group hover:shadow-xl transition duration-300 flex flex-col">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="image_9339e3.jpg" alt="Representação em Pregões" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-transparent"></div>
+                        <h3 class="absolute bottom-4 left-4 text-white font-serif font-bold text-xl tracking-wide drop-shadow-md">Disputa de Pregões</h3>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <p class="text-gray-600 mb-6 text-sm flex-grow leading-relaxed">Gestão estratégica de lances e representação qualificada (preposto). Atuação incisiva na defesa administrativa contra concorrentes irregulares.</p>
+                        <a href="https://wa.me/5516996149778?text=Olá, preciso de representação e gestão de lances em Pregões." target="_blank" class="text-brand-dark font-semibold border-b border-brand-gold pb-1 inline-table hover:text-brand-gold transition uppercase text-xs tracking-wider">
+                            Solicitar Análise
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Serviço 9: Comércio Internacional -->
+                <div class="bg-white border border-gray-200 rounded-sm shadow-md overflow-hidden group hover:shadow-xl transition duration-300 flex flex-col">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="image_9339fb.jpg" alt="Comércio Internacional" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-transparent"></div>
+                        <h3 class="absolute bottom-4 left-4 text-white font-serif font-bold text-xl tracking-wide drop-shadow-md">Comércio Internacional</h3>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <p class="text-gray-600 mb-6 text-sm flex-grow leading-relaxed">Estruturação Go-To-Market e segurança paralegal para atração de investimentos, viabilização de exportação/importação e parcerias globais.</p>
+                        <a href="https://wa.me/5516996149778?text=Olá, tenho interesse na assessoria de Comércio Internacional." target="_blank" class="text-brand-dark font-semibold border-b border-brand-gold pb-1 inline-table hover:text-brand-gold transition uppercase text-xs tracking-wider">
+                            Solicitar Análise
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Serviço 10: Business Intelligence (Destaque) -->
+                <div class="bg-white border border-gray-200 rounded-sm shadow-md overflow-hidden group hover:shadow-xl transition duration-300 flex flex-col md:col-span-2 lg:col-span-3">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="h-64 md:h-auto md:w-1/2 lg:w-2/3 overflow-hidden relative">
+                            <img src="image_9339fe.jpg" alt="Business Intelligence" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-brand-dark/90 to-transparent"></div>
+                            <h3 class="absolute bottom-4 left-4 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:left-8 text-white font-serif font-bold text-2xl md:text-3xl tracking-wide drop-shadow-lg max-w-sm">Inteligência de Dados & BI</h3>
+                        </div>
+                        <div class="p-8 md:w-1/2 lg:w-1/3 flex flex-col justify-center bg-white">
+                            <div class="mb-4 text-brand-gold"><i class="fas fa-chart-pie text-3xl"></i></div>
+                            <h4 class="text-xl font-bold text-brand-dark mb-3">Estratégia Baseada em Dados</h4>
+                            <p class="text-gray-600 mb-6 text-sm leading-relaxed">Auditoria de riscos corporativos e soluções analíticas avançadas (Dashboards em Power BI e Excel). Transformamos as planilhas da sua empresa em decisões automatizadas para maximização de lucros e controle total da operação.</p>
+                            <a href="https://wa.me/5516996149778?text=Olá, quero implementar Business Intelligence na minha empresa." target="_blank" class="bg-brand-dark text-white text-center hover:bg-brand-gold hover:text-brand-dark py-3 px-6 rounded uppercase text-xs font-bold tracking-wider transition">
+                                Agendar Reunião de BI
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato e CTA -->
+    <section id="contato" class="bg-brand-dark text-white py-20 border-t border-brand-gold/30">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6 tracking-wide text-brand-gold">Proteja e expanda suas operações.</h2>
+            <p class="text-gray-300 mb-10 max-w-2xl mx-auto tracking-wide text-lg">Agende uma reunião estratégica de alinhamento corporativo para estruturarmos o plano de conformidade do seu negócio.</p>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                <!-- WhatsApp -->
+                <a href="https://wa.me/5516996149778" target="_blank" class="flex items-center space-x-3 bg-brand-gold hover:bg-yellow-500 text-brand-dark px-8 py-4 rounded font-bold text-base tracking-wider transition w-full md:w-auto justify-center shadow-lg">
+                    <i class="fab fa-whatsapp text-2xl"></i>
+                    <span>(16) 99614-9778</span>
+                </a>
+                
+                <!-- Email -->
+                <a href="mailto:pedroteixeiraworld@gmail.com" class="flex items-center space-x-3 bg-transparent hover:bg-white/10 text-brand-gold border border-brand-gold px-8 py-4 rounded font-bold text-base tracking-wider transition w-full md:w-auto justify-center">
+                    <i class="far fa-envelope text-xl"></i>
+                    <span>E-mail Corporativo</span>
+                </a>
+            </div>
+            
+            <div class="mt-10">
+                <a href="https://instagram.com/p.t.business" target="_blank" class="inline-flex items-center space-x-2 text-gray-400 hover:text-brand-gold transition text-lg">
+                    <i class="fab fa-instagram text-2xl"></i>
+                    <span>@p.t.business</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#050914] text-gray-500 py-10">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            
+            <div class="mb-6 md:mb-0 text-center md:text-left flex flex-col items-center md:items-start">
+                
+                <!-- Logo Oficial no Footer -->
+                <div class="mb-4">
+                    <img src="image_9daec3.png" alt="Pedro Teixeira Assessoria" class="h-12 md:h-16 object-contain">
+                </div>
+
+                <p class="text-[10px] tracking-widest uppercase mb-1">Assessor de Processos e Conformidade</p>
+                <p class="text-xs">Ribeirão Preto - SP e Região</p>
+            </div>
+            
+            <div class="text-center md:text-right">
+                 <p class="text-xs mt-2 text-gray-600 tracking-wide">
+                    &copy; 2026 Pedro H.P. Teixeira. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
