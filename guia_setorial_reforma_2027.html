@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impacto por Setor: Reforma Tributária 2027</title>
+    <title>Impacto por Setor: Reforma 2027</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Importação dos ícones (Seta e WhatsApp) -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }
         .tab-active { border-bottom: 4px solid #2563eb; color: #2563eb; background: #eff6ff; }
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
         .before-tag { background: #fee2e2; color: #991b1b; }
         .after-tag { background: #dcfce7; color: #166534; }
         .chart-box { height: 300px; width: 100%; position: relative; }
         
         /* Estilos personalizados para o artigo */
-        .article-content h3 { color: #0f172a; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
+        .article-content h3 { color: #0f172a; font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; }
         .article-content h4 { color: #1e293b; font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
         .article-content p { color: #334155; line-height: 1.8; margin-bottom: 1.25rem; }
         .article-content ul { list-style-type: disc; padding-left: 1.5rem; color: #334155; margin-bottom: 1.25rem; }
@@ -24,7 +26,7 @@
         
         /* Estilos para as tabelas do artigo */
         .article-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; margin-bottom: 2rem; background: white; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        .article-table th { background-color: #1e293b; color: white; padding: 1rem; text-align: left; font-weight: 600; font-size: 0.875rem; }
+        .article-table th { background-color: #0f172a; color: white; padding: 1rem; text-align: left; font-weight: 600; font-size: 0.875rem; }
         .article-table td { padding: 1rem; border-bottom: 1px solid #e2e8f0; font-size: 0.875rem; color: #475569; }
         .article-table tr:last-child td { border-bottom: none; }
         .article-table tr:hover { background-color: #f8fafc; }
@@ -32,8 +34,8 @@
 </head>
 <body class="antialiased">
 
-    <!-- Header / Navbar -->
-    <nav class="bg-white sticky top-0 z-50 shadow-sm border-b border-slate-200">
+    <!-- Header / Navbar com botão de Voltar -->
+    <nav class="bg-white sticky top-0 z-50 shadow-md border-b border-slate-200">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <div class="flex items-center">
                 <a href="index.html">
@@ -42,8 +44,9 @@
             </div>
             
             <div class="flex items-center space-x-4">
-                <a href="#artigo-completo" class="hidden md:block text-slate-800 font-medium hover:text-blue-600 transition text-sm">
-                    <i class="fas fa-book-open mr-1"></i> Ler Relatório Completo
+                <!-- BOTÃO DE VOLTAR AO SITE PRINCIPAL -->
+                <a href="index.html" class="hidden md:block text-slate-800 font-medium hover:text-blue-600 transition text-sm">
+                    <i class="fas fa-arrow-left mr-1"></i> Assessoria Empresarial
                 </a>
                 <a href="https://wa.me/5516996149778" target="_blank" class="bg-slate-900 text-white px-5 py-2 rounded font-medium hover:bg-blue-600 transition-colors text-sm flex items-center shadow">
                     <i class="fab fa-whatsapp text-lg mr-2"></i> Fale Conosco
@@ -55,11 +58,9 @@
     <!-- Conteúdo Principal -->
     <main class="p-4 md:p-8">
         <div class="max-w-6xl mx-auto">
-            
-            <!-- Cabeçalho do Dashboard -->
             <header class="mb-12 text-center md:text-left mt-4">
-                <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight">Dashboard de Impacto Setorial <span class="text-blue-600">2027</span></h1>
-                <p class="text-slate-600 mt-2 text-lg italic">Análise interativa: Selecione o perfil da empresa para visualizar o impacto do IVA Dual.</p>
+                <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight">Relatório de Impacto Setorial <span class="text-blue-600">2027</span></h1>
+                <p class="text-slate-600 mt-2 text-lg italic">Análise comparativa: Do Caos Tributário à Simplicidade do IVA Dual.</p>
             </header>
 
             <!-- Navegação por Tipos de Empresa -->
@@ -71,11 +72,12 @@
                 <button onclick="showSector('cafeteria')" id="btn-cafeteria" class="sector-btn px-6 py-3 rounded-xl font-bold text-sm transition-all hover:bg-slate-50">Cafeteria</button>
             </div>
 
-            <!-- Conteúdo Dinâmico (Dashboard) -->
-            <div id="content" class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            <!-- Conteúdo Dinâmico -->
+            <div id="content" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <!-- Coluna 1 e 2: Detalhes -->
                 <div class="lg:col-span-2 space-y-6">
-                    <div class="bg-white rounded-3xl p-8 shadow-md border border-slate-100">
+                    <!-- Card Comparativo -->
+                    <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
                         <div class="flex items-center gap-4 mb-8">
                             <div id="sector-icon" class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl">🏭</div>
                             <h2 id="sector-name" class="text-3xl font-bold text-slate-800">Fábrica de Bebidas</h2>
@@ -85,25 +87,30 @@
                             <div class="space-y-4">
                                 <span class="before-tag px-3 py-1 rounded-full text-xs font-bold uppercase">Sistema Atual (Até 2026)</span>
                                 <div id="current-tax" class="text-sm text-slate-600 leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-100 min-h-[120px]">
+                                    <!-- Texto Atual -->
                                 </div>
                             </div>
                             <div class="space-y-4">
                                 <span class="after-tag px-3 py-1 rounded-full text-xs font-bold uppercase">Sistema Novo (Pós 2027)</span>
                                 <div id="future-tax" class="text-sm text-slate-700 font-medium leading-relaxed bg-green-50 p-4 rounded-xl border border-green-100 min-h-[120px]">
+                                    <!-- Texto Futuro -->
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Benefícios e Escrituração -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
                             <h4 class="font-bold text-blue-600 mb-4 flex items-center gap-2">⭐ Benefícios e Incentivos</h4>
                             <ul id="benefits-list" class="text-sm text-slate-600 space-y-3">
+                                <!-- Lista de Benefícios -->
                             </ul>
                         </div>
                         <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
                             <h4 class="font-bold text-amber-600 mb-4 flex items-center gap-2">📝 Escrituração e Compliance</h4>
                             <p id="compliance-text" class="text-sm text-slate-600 leading-relaxed">
+                                <!-- Texto de Escrituração -->
                             </p>
                         </div>
                     </div>
@@ -111,7 +118,7 @@
 
                 <!-- Coluna 3: Gráficos e Alertas -->
                 <div class="space-y-6">
-                    <div class="bg-slate-900 rounded-3xl p-6 text-white shadow-xl">
+                    <div class="bg-slate-900 rounded-3xl p-6 text-white shadow-2xl">
                         <h3 class="text-lg font-bold mb-6 flex items-center gap-2">📊 Impacto na Carga</h3>
                         <div class="chart-box">
                             <canvas id="sectorChart"></canvas>
@@ -122,23 +129,24 @@
                     <div id="warning-box" class="bg-amber-100 border-l-4 border-amber-500 p-6 rounded-2xl">
                         <h4 class="font-bold text-amber-800 text-sm mb-2">⚠️ Ponto de Atenção</h4>
                         <p id="warning-text" class="text-xs text-amber-900 leading-relaxed">
+                            <!-- Alerta Específico -->
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Divisor de Seção -->
-            <div class="relative py-8">
+            <!-- Divisor Visual antes do Artigo -->
+            <div class="relative py-12">
                 <div class="absolute inset-0 flex items-center" aria-hidden="true">
                     <div class="w-full border-t border-slate-300"></div>
                 </div>
                 <div class="relative flex justify-center">
-                    <span class="bg-slate-50 px-4 text-sm text-slate-500 font-medium"><i class="fas fa-file-alt mr-2"></i>DOCUMENTO TÉCNICO</span>
+                    <span class="bg-slate-100 px-4 text-sm text-slate-500 font-bold tracking-widest"><i class="fas fa-file-alt mr-2"></i>DOCUMENTO TÉCNICO DE REFERÊNCIA</span>
                 </div>
             </div>
 
-            <!-- INÍCIO DO ARTIGO FORNECIDO PELO USUÁRIO -->
-            <article id="artigo-completo" class="bg-white p-8 md:p-12 rounded-3xl shadow-lg border border-slate-200 article-content mt-8 mb-12">
+            <!-- INÍCIO DO ARTIGO DE PESQUISA -->
+            <article id="artigo-completo" class="bg-white p-8 md:p-12 rounded-3xl shadow-lg border border-slate-200 article-content mb-12">
                 
                 <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 border-b border-slate-100 pb-6 leading-tight">
                     Impacto Estrutural da Reforma Tributária nas Tipologias Societárias Brasileiras: Análise Comparativa e Adequação Estratégica (2026-2033)
@@ -341,7 +349,7 @@
                 ],
                 compliance: "Substituição de dezenas de guias (GIA, EFD ICMS/IPI) por uma única escrituração centralizada no Comitê Gestor do IBS. Foco total em NF-e digital.",
                 warning: "Bebidas alcoólicas e açucaradas terão alíquota extra (Imposto Seletivo) que pode elevar o preço final para desestimular o consumo.",
-                chartData: [22, 28],
+                chartData: [22, 28], // Antes vs Depois (carga relativa)
                 labels: ["IPI/PIS/ICMS", "IBS/CBS/IS"]
             },
             supermercado: {
@@ -411,6 +419,7 @@
         function showSector(key) {
             const data = sectors[key];
             
+            // UI Update
             document.querySelectorAll('.sector-btn').forEach(b => b.className = "sector-btn px-6 py-3 rounded-xl font-bold text-sm transition-all hover:bg-slate-50");
             document.getElementById(`btn-${key}`).className = "sector-btn px-6 py-3 rounded-xl font-bold text-sm transition-all tab-active shadow-sm";
 
@@ -459,6 +468,7 @@
             });
         }
 
+        // Init
         window.onload = () => showSector('bebidas');
     </script>
 </body>
