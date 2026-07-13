@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impacto por Setor: Reforma 2027</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Importação dos ícones (Seta e WhatsApp) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }
+        .tab-active { border-bottom: 4px solid #2563eb; color: #2563eb; background: #eff6ff; }
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .before-tag { background: #fee2e2; color: #991b1b; }
+        .after-tag { background: #dcfce7; color: #166534; }
+        .chart-box { height: 300px; width: 100%; position: relative; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Navbar com botão de Voltar -->
+    <nav class="bg-white sticky top-0 z-50 shadow-md border-b border-slate-200">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html">
+                    <img src="image_9daec3.png" alt="Teixeira Assessoria" class="h-10 md:h-12 object-contain" onerror="this.style.display='none'">
+                </a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <!-- BOTÃO DE VOLTAR AO SITE PRINCIPAL -->
+                <a href="index.html" class="hidden md:block text-slate-800 font-medium hover:text-blue-600 transition text-sm">
+                    <i class="fas fa-arrow-left mr-1"></i> Assessoria Empresarial
+                </a>
+                <a href="https://wa.me/5516996149778" target="_blank" class="bg-slate-900 text-white px-5 py-2 rounded font-medium hover:bg-blue-600 transition-colors text-sm flex items-center shadow">
+                    <i class="fab fa-whatsapp text-lg mr-2"></i> Fale Conosco
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="p-4 md:p-8">
+        <div class="max-w-6xl mx-auto">
+            <header class="mb-12 text-center md:text-left mt-4">
+                <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight">Relatório de Impacto Setorial <span class="text-blue-600">2027</span></h1>
+                <p class="text-slate-600 mt-2 text-lg italic">Análise comparativa: Do Caos Tributário à Simplicidade do IVA Dual.</p>
+            </header>
+
+            <!-- Navegação por Tipos de Empresa -->
+            <div class="flex flex-wrap gap-2 mb-8 bg-white p-2 rounded-2xl shadow-sm border border-slate-200">
+                <button onclick="showSector('bebidas')" id="btn-bebidas" class="sector-btn px-6 py-3 rounded-xl font-bold text-sm transition-all hover:bg-slate-50">Fábrica de Bebidas</button>
+                <button onclick="showSector('supermercado')" id="btn-supermercado" class="sector-btn px-6 py-3 rounded-xl font-bold text-sm transition-all hover:bg-slate-50">Supermercado</button>
+                <button onclick="showSector('escritorio')" id="btn-escritorio" class="sector-btn px-6 py-3 rounded-xl font-bold text-sm transition-all hover:bg-slate-50">Escritório (Serviços)</button>
+                <button onclick="showSector('varejo')" id="btn-varejo" class="sector-btn px-6 py-3 rounded-xl font-bold text-sm transition-all hover:bg-slate-50">Varejo de Roupas</button>
+                <button onclick="showSector('cafeteria')" id="btn-cafeteria" class="sector-btn px-6 py-3 rounded-xl font-bold text-sm transition-all hover:bg-slate-50">Cafeteria</button>
+            </div>
+
+            <!-- Conteúdo Dinâmico -->
+            <div id="content" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Coluna 1 e 2: Detalhes -->
+                <div class="lg:col-span-2 space-y-6">
+                    <!-- Card Comparativo -->
+                    <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div id="sector-icon" class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl">🏭</div>
+                            <h2 id="sector-name" class="text-3xl font-bold text-slate-800">Fábrica de Bebidas</h2>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="space-y-4">
+                                <span class="before-tag px-3 py-1 rounded-full text-xs font-bold uppercase">Sistema Atual (Até 2026)</span>
+                                <div id="current-tax" class="text-sm text-slate-600 leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-100">
+                                    <!-- Texto Atual -->
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <span class="after-tag px-3 py-1 rounded-full text-xs font-bold uppercase">Sistema Novo (Pós 2027)</span>
+                                <div id="future-tax" class="text-sm text-slate-700 font-medium leading-relaxed bg-green-50 p-4 rounded-xl border border-green-100">
+                                    <!-- Texto Futuro -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Benefícios e Escrituração -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                            <h4 class="font-bold text-blue-600 mb-4 flex items-center gap-2">⭐ Benefícios e Incentivos</h4>
+                            <ul id="benefits-list" class="text-sm text-slate-600 space-y-3">
+                                <!-- Lista de Benefícios -->
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                            <h4 class="font-bold text-amber-600 mb-4 flex items-center gap-2">📝 Escrituração e Compliance</h4>
+                            <p id="compliance-text" class="text-sm text-slate-600 leading-relaxed">
+                                <!-- Texto de Escrituração -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna 3: Gráficos e Alertas -->
+                <div class="space-y-6">
+                    <div class="bg-slate-900 rounded-3xl p-6 text-white shadow-2xl">
+                        <h3 class="text-lg font-bold mb-6 flex items-center gap-2">📊 Impacto na Carga</h3>
+                        <div class="chart-box">
+                            <canvas id="sectorChart"></canvas>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-4 leading-tight italic">Estimativa baseada em alíquota padrão de 26,5% vs. regimes atuais.</p>
+                    </div>
+
+                    <div id="warning-box" class="bg-amber-100 border-l-4 border-amber-500 p-6 rounded-2xl">
+                        <h4 class="font-bold text-amber-800 text-sm mb-2">⚠️ Ponto de Atenção</h4>
+                        <p id="warning-text" class="text-xs text-amber-900 leading-relaxed">
+                            <!-- Alerta Específico -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const sectors = {
+            bebidas: {
+                name: "Fábrica de Bebidas",
+                icon: "🏭",
+                current: "Paga IPI (alto), PIS/Cofins, ICMS e muitas vezes ICMS Substituição Tributária (ST). Regime de Lucro Real é o mais comum. Complexidade extrema no cálculo de créditos de insumos (garrafas, rótulos).",
+                future: "O IPI é extinto e substituído pelo **Imposto Seletivo** (Pecado). CBS e IBS substituem PIS/Cofins e ICMS. Fim da Substituição Tributária (ST) para a maioria dos itens, simplificando o fluxo.",
+                benefits: [
+                    "Crédito Financeiro Pleno: Todo gasto operacional gera crédito tributário.",
+                    "Fim do ICMS-ST: Reduz o preço retido na fonte e melhora o fluxo de caixa.",
+                    "Exportação Imune: Desoneração total na venda para o exterior."
+                ],
+                compliance: "Substituição de dezenas de guias (GIA, EFD ICMS/IPI) por uma única escrituração centralizada no Comitê Gestor do IBS. Foco total em NF-e digital.",
+                warning: "Bebidas alcoólicas e açucaradas terão alíquota extra (Imposto Seletivo) que pode elevar o preço final para desestimular o consumo.",
+                chartData: [22, 28], // Antes vs Depois (carga relativa)
+                labels: ["IPI/PIS/ICMS", "IBS/CBS/IS"]
+            },
+            supermercado: {
+                name: "Supermercado",
+                icon: "🛒",
+                current: "Lida com PIS/Cofins Monofásico e ICMS-ST em milhares de SKUs. Alíquotas variam por estado. Cesta básica tem isenções fragmentadas e confusas.",
+                future: "Criação da **Cesta Básica Nacional** com alíquota ZERO de IBS/CBS. Implementação do **Cashback Tributário** para famílias inscritas no CadÚnico no ato da compra.",
+                benefits: [
+                    "Alíquota Zero na Cesta Básica unificada em todo o país.",
+                    "Crédito Automático na compra de fornecedores (fim do resíduo tributário).",
+                    "Redução Drástica do contencioso judicial sobre classificação de produtos."
+                ],
+                compliance: "O Split Payment será crucial aqui: o imposto de cada item passado no caixa é separado instantaneamente pelo sistema de pagamentos bancário.",
+                warning: "Gestão de estoque precisará ser milimétrica para não perder créditos na transição de 2026 para 2027.",
+                chartData: [24, 21],
+                labels: ["Carga Atual", "Carga Pós-Ref."]
+            },
+            escritorio: {
+                name: "Escritório (Serviços)",
+                icon: "⚖️",
+                current: "Geralmente no Lucro Presumido. Paga ISS (2% a 5%) e PIS/Cofins cumulativos (3,65%). Baixa carga tributária pois tem pouca despesa que gera crédito.",
+                future: "Salto para alíquota de ~26,5% (IBS/CBS). **Profissões Regulamentadas** (Advogados, Contadores, Médicos) terão redução de 60% na alíquota (ficando em ~10,6%).",
+                benefits: [
+                    "Redução de 60% na alíquota para profissões liberais regulamentadas.",
+                    "Possibilidade de repassar crédito cheio para clientes B2B (Lucro Real).",
+                    "Simplificação: Fim da obrigação de lidar com centenas de legislações de ISS municipais."
+                ],
+                compliance: "Escrituração digital simplificada, mas com maior rigor na distinção entre despesas pessoais e profissionais para gerar créditos.",
+                warning: "Escritórios de consultoria ou TI que não têm conselho de classe enfrentarão um aumento real de carga de quase 200%.",
+                chartData: [14, 26],
+                labels: ["ISS/PIS/COF", "IBS/CBS"]
+            },
+            varejo: {
+                name: "Varejo de Roupas",
+                icon: "👕",
+                current: "Maioria no Simples Nacional. Paga imposto unificado no DAS. Lida com DIFAL (diferencial de alíquota) no e-commerce e antecipação de ICMS.",
+                future: "Empresas no Simples poderão pagar IBS/CBS 'por fora' (modelo híbrido) para permitir que seus clientes PJ aproveitem crédito integral do imposto.",
+                benefits: [
+                    "Fim do DIFAL e das barreiras fiscais entre estados no e-commerce.",
+                    "Crédito Financeiro: Crédito sobre aluguel, energia e marketing digital.",
+                    "Simplificação no transporte interestadual: Fim do imposto de fronteira."
+                ],
+                compliance: "Adoção obrigatória da NFC-e com integração ao Split Payment. O imposto sobre a venda via cartão já é retido pelo banco.",
+                warning: "Lojas de roupas que compram de 'sacoleiros' ou informais perderão competitividade pois não terão crédito tributário nessas compras.",
+                chartData: [12, 13],
+                labels: ["Simples Atual", "Híbrido/IVA"]
+            },
+            cafeteria: {
+                name: "Cafeteria / Alimentação",
+                icon: "☕",
+                current: "Simples Nacional ou Lucro Presumido. Paga ICMS reduzido em alguns estados e ISS se houver serviço. Lida com muitas regras de substituição de bebidas.",
+                future: "Setor de Bares e Restaurantes terá **Regime Diferenciado**: alíquotas reduzidas e regras de crédito específicas para a folha de salários.",
+                benefits: [
+                    "Alíquotas reduzidas para o setor de alimentação fora do lar.",
+                    "Crédito integral sobre insumos (café, leite, açúcar) e bens de capital (máquinas).",
+                    "Unificação de regras: Mesma tributação se o café for tomado na loja ou delivery."
+                ],
+                compliance: "O controle de caixa (frente de loja) precisará estar 100% integrado ao sistema bancário para o recolhimento automático.",
+                warning: "Produtos 'ultraprocessados' vendidos na cafeteria podem sofrer incidência do Imposto Seletivo, encarecendo o cardápio.",
+                chartData: [11, 12],
+                labels: ["Simples/Rest.", "Regime Difer."]
+            }
+        };
+
+        let chart = null;
+
+        function showSector(key) {
+            const data = sectors[key];
+            
+            // UI Update
+            document.querySelectorAll('.sector-btn').forEach(b => b.className = "sector-btn px-6 py-3 rounded-xl font-bold text-sm transition-all hover:bg-slate-50");
+            document.getElementById(`btn-${key}`).className = "sector-btn px-6 py-3 rounded-xl font-bold text-sm transition-all tab-active shadow-sm";
+
+            document.getElementById('sector-name').innerText = data.name;
+            document.getElementById('sector-icon').innerText = data.icon;
+            document.getElementById('current-tax').innerText = data.current;
+            document.getElementById('future-tax').innerText = data.future;
+            document.getElementById('compliance-text').innerText = data.compliance;
+            document.getElementById('warning-text').innerText = data.warning;
+
+            const list = document.getElementById('benefits-list');
+            list.innerHTML = data.benefits.map(b => `<li class="flex items-start gap-2"><span class="text-green-500">✔</span>${b}</li>`).join('');
+
+            updateChart(data);
+        }
+
+        function updateChart(data) {
+            const ctx = document.getElementById('sectorChart').getContext('2d');
+            if (chart) chart.destroy();
+
+            chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data.labels.map(l => l.length > 15 ? l.match(/.{1,15}(\s|$)/g) : l),
+                    datasets: [{
+                        data: data.chartData,
+                        backgroundColor: ['#475569', '#2563eb'],
+                        borderRadius: 12,
+                        barThickness: 50
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#0f172a',
+                            callbacks: { label: (c) => ` Carga: ${c.raw}% (Est.)` }
+                        }
+                    },
+                    scales: {
+                        y: { beginAtZero: true, max: 35, ticks: { color: '#94a3b8' }, grid: { display: false } },
+                        x: { ticks: { color: '#f8fafc', font: { size: 10, weight: 'bold' } } }
+                    }
+                }
+            });
+        }
+
+        // Init
+        window.onload = () => showSector('bebidas');
+    </script>
+</body>
+</html>
