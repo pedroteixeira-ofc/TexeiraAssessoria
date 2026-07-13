@@ -3,25 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impacto por Setor: Reforma 2027</title>
+    <title>Impacto por Setor: Reforma Tributária 2027</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <!-- Importação dos ícones (Seta e WhatsApp) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
         .tab-active { border-bottom: 4px solid #2563eb; color: #2563eb; background: #eff6ff; }
-        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
         .before-tag { background: #fee2e2; color: #991b1b; }
         .after-tag { background: #dcfce7; color: #166534; }
         .chart-box { height: 300px; width: 100%; position: relative; }
+        
+        /* Estilos personalizados para o artigo */
+        .article-content h3 { color: #0f172a; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
+        .article-content h4 { color: #1e293b; font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .article-content p { color: #334155; line-height: 1.8; margin-bottom: 1.25rem; }
+        .article-content ul { list-style-type: disc; padding-left: 1.5rem; color: #334155; margin-bottom: 1.25rem; }
+        .article-content li { margin-bottom: 0.5rem; }
+        
+        /* Estilos para as tabelas do artigo */
+        .article-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; margin-bottom: 2rem; background: white; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .article-table th { background-color: #1e293b; color: white; padding: 1rem; text-align: left; font-weight: 600; font-size: 0.875rem; }
+        .article-table td { padding: 1rem; border-bottom: 1px solid #e2e8f0; font-size: 0.875rem; color: #475569; }
+        .article-table tr:last-child td { border-bottom: none; }
+        .article-table tr:hover { background-color: #f8fafc; }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Header / Navbar com botão de Voltar -->
-    <nav class="bg-white sticky top-0 z-50 shadow-md border-b border-slate-200">
+    <!-- Header / Navbar -->
+    <nav class="bg-white sticky top-0 z-50 shadow-sm border-b border-slate-200">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <div class="flex items-center">
                 <a href="index.html">
@@ -30,9 +42,8 @@
             </div>
             
             <div class="flex items-center space-x-4">
-                <!-- BOTÃO DE VOLTAR AO SITE PRINCIPAL -->
-                <a href="index.html" class="hidden md:block text-slate-800 font-medium hover:text-blue-600 transition text-sm">
-                    <i class="fas fa-arrow-left mr-1"></i> Assessoria Empresarial
+                <a href="#artigo-completo" class="hidden md:block text-slate-800 font-medium hover:text-blue-600 transition text-sm">
+                    <i class="fas fa-book-open mr-1"></i> Ler Relatório Completo
                 </a>
                 <a href="https://wa.me/5516996149778" target="_blank" class="bg-slate-900 text-white px-5 py-2 rounded font-medium hover:bg-blue-600 transition-colors text-sm flex items-center shadow">
                     <i class="fab fa-whatsapp text-lg mr-2"></i> Fale Conosco
@@ -44,9 +55,11 @@
     <!-- Conteúdo Principal -->
     <main class="p-4 md:p-8">
         <div class="max-w-6xl mx-auto">
+            
+            <!-- Cabeçalho do Dashboard -->
             <header class="mb-12 text-center md:text-left mt-4">
-                <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight">Relatório de Impacto Setorial <span class="text-blue-600">2027</span></h1>
-                <p class="text-slate-600 mt-2 text-lg italic">Análise comparativa: Do Caos Tributário à Simplicidade do IVA Dual.</p>
+                <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight">Dashboard de Impacto Setorial <span class="text-blue-600">2027</span></h1>
+                <p class="text-slate-600 mt-2 text-lg italic">Análise interativa: Selecione o perfil da empresa para visualizar o impacto do IVA Dual.</p>
             </header>
 
             <!-- Navegação por Tipos de Empresa -->
@@ -58,12 +71,11 @@
                 <button onclick="showSector('cafeteria')" id="btn-cafeteria" class="sector-btn px-6 py-3 rounded-xl font-bold text-sm transition-all hover:bg-slate-50">Cafeteria</button>
             </div>
 
-            <!-- Conteúdo Dinâmico -->
-            <div id="content" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Conteúdo Dinâmico (Dashboard) -->
+            <div id="content" class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
                 <!-- Coluna 1 e 2: Detalhes -->
                 <div class="lg:col-span-2 space-y-6">
-                    <!-- Card Comparativo -->
-                    <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
+                    <div class="bg-white rounded-3xl p-8 shadow-md border border-slate-100">
                         <div class="flex items-center gap-4 mb-8">
                             <div id="sector-icon" class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl">🏭</div>
                             <h2 id="sector-name" class="text-3xl font-bold text-slate-800">Fábrica de Bebidas</h2>
@@ -72,31 +84,26 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div class="space-y-4">
                                 <span class="before-tag px-3 py-1 rounded-full text-xs font-bold uppercase">Sistema Atual (Até 2026)</span>
-                                <div id="current-tax" class="text-sm text-slate-600 leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-100">
-                                    <!-- Texto Atual -->
+                                <div id="current-tax" class="text-sm text-slate-600 leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-100 min-h-[120px]">
                                 </div>
                             </div>
                             <div class="space-y-4">
                                 <span class="after-tag px-3 py-1 rounded-full text-xs font-bold uppercase">Sistema Novo (Pós 2027)</span>
-                                <div id="future-tax" class="text-sm text-slate-700 font-medium leading-relaxed bg-green-50 p-4 rounded-xl border border-green-100">
-                                    <!-- Texto Futuro -->
+                                <div id="future-tax" class="text-sm text-slate-700 font-medium leading-relaxed bg-green-50 p-4 rounded-xl border border-green-100 min-h-[120px]">
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Benefícios e Escrituração -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
                             <h4 class="font-bold text-blue-600 mb-4 flex items-center gap-2">⭐ Benefícios e Incentivos</h4>
                             <ul id="benefits-list" class="text-sm text-slate-600 space-y-3">
-                                <!-- Lista de Benefícios -->
                             </ul>
                         </div>
                         <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
                             <h4 class="font-bold text-amber-600 mb-4 flex items-center gap-2">📝 Escrituração e Compliance</h4>
                             <p id="compliance-text" class="text-sm text-slate-600 leading-relaxed">
-                                <!-- Texto de Escrituração -->
                             </p>
                         </div>
                     </div>
@@ -104,7 +111,7 @@
 
                 <!-- Coluna 3: Gráficos e Alertas -->
                 <div class="space-y-6">
-                    <div class="bg-slate-900 rounded-3xl p-6 text-white shadow-2xl">
+                    <div class="bg-slate-900 rounded-3xl p-6 text-white shadow-xl">
                         <h3 class="text-lg font-bold mb-6 flex items-center gap-2">📊 Impacto na Carga</h3>
                         <div class="chart-box">
                             <canvas id="sectorChart"></canvas>
@@ -115,11 +122,208 @@
                     <div id="warning-box" class="bg-amber-100 border-l-4 border-amber-500 p-6 rounded-2xl">
                         <h4 class="font-bold text-amber-800 text-sm mb-2">⚠️ Ponto de Atenção</h4>
                         <p id="warning-text" class="text-xs text-amber-900 leading-relaxed">
-                            <!-- Alerta Específico -->
                         </p>
                     </div>
                 </div>
             </div>
+
+            <!-- Divisor de Seção -->
+            <div class="relative py-8">
+                <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                    <div class="w-full border-t border-slate-300"></div>
+                </div>
+                <div class="relative flex justify-center">
+                    <span class="bg-slate-50 px-4 text-sm text-slate-500 font-medium"><i class="fas fa-file-alt mr-2"></i>DOCUMENTO TÉCNICO</span>
+                </div>
+            </div>
+
+            <!-- INÍCIO DO ARTIGO FORNECIDO PELO USUÁRIO -->
+            <article id="artigo-completo" class="bg-white p-8 md:p-12 rounded-3xl shadow-lg border border-slate-200 article-content mt-8 mb-12">
+                
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 border-b border-slate-100 pb-6 leading-tight">
+                    Impacto Estrutural da Reforma Tributária nas Tipologias Societárias Brasileiras: Análise Comparativa e Adequação Estratégica (2026-2033)
+                </h2>
+
+                <p>A profunda reestruturação do sistema de tributação sobre o consumo no Brasil, consolidada por intermédio da Emenda Constitucional nº 132/2023 e materializada pelas Leis Complementares nº 214/2025 e nº 227/2026, configura a mais expressiva metamorfose na arquitetura fiscal do país no último século. O novo paradigma extingue gradualmente um modelo fragmentado e cumulativo, fundamentado em cinco tributos distintos (PIS, Cofins, IPI, ICMS e ISS), para dar lugar a um Imposto sobre o Valor Agregado de natureza dual (IVA Dual), consubstanciado na Contribuição sobre Bens e Serviços (CBS), sob a égide federal, e no Imposto sobre Bens e Serviços (IBS), de competência partilhada entre Estados e Municípios.</p>
+                
+                <p>O período de transição estipulado pelo legislador exige uma readaptação imediata do tecido empresarial. O ano de 2026 foi desenhado como um ciclo de testes operacionais e adaptação tecnológica, impondo a convivência temporária de sistemas antagônicos, para culminar na substituição definitiva do PIS e da Cofins pela CBS em janeiro de 2027. A presente análise tem por desígnio dissecar os reflexos destas alterações, pormenorizando os regimes tributários atualmente vigentes no Brasil, as respetivas tipologias empresariais que deles beneficiam, as modificações operadas no Código Tributário Nacional (CTN) e o relatório comparativo exaustivo dos impactos projetados para o horizonte de 2027.</p>
+
+                <h3>Tipologias Societárias Comuns, Regimes Tributários Atuais e Exigências de Escrituração</h3>
+                <p>A intrincada legislação tributária brasileira obriga as organizações a encararem o regime fiscal não como um mero imperativo de conformidade, mas como um vetor central de planeamento estratégico. A adequação a um regime específico está intimamente ligada a fatores operacionais, tais como o volume de faturação anual, a margem de lucro líquido, a intensidade de despesas operacionais dedutíveis e a dimensão da folha de salários.</p>
+
+                <h4>Microempreendedor Individual (MEI) e o Nanoempreendedor</h4>
+                <p>O regime do Microempreendedor Individual (MEI) foi instituído com o propósito primário de promover a formalização de profissionais autónomos e pequenos negócios, operando à margem da economia formal. Exemplos típicos desta tipologia incluem pequenos comerciantes de bairro, eletricistas independentes, cabeleireiros e vendedores ambulantes.</p>
+                <p>O limite de faturação para enquadramento no MEI encontra-se fixado em R$ 81.000,00 anuais, não obstante a existência de debates legislativos visando a elevação deste teto para valores na ordem dos R$ 132.000,00 a partir de 2027. O regime tributário aplicável é o SIMEI, que se caracteriza por uma simplificação extrema: o empreendedor procede ao pagamento de um valor fixo mensal através do Documento de Arrecadação do Simples Nacional (DAS-MEI). Este montante engloba a contribuição para a segurança social (INSS) e frações simbólicas de ICMS ou ISS, consoante a natureza da atividade exercida.</p>
+                <p>A principal benesse fiscal do MEI traduz-se na isenção absoluta de tributos federais incidentes sobre o rendimento e a faturação (IRPJ, CSLL, PIS, Cofins e IPI), a par de uma carga previdenciária significativamente atenuada. No que concerne à escrituração, o regime dispensa a manutenção de contabilidade formal, exigindo tão somente o controlo mensal das receitas e a submissão anual da Declaração Anual do Simples Nacional (DASN-SIMEI). Adicionalmente, as diretrizes da Reforma Tributária introduzem a figura do "nanoempreendedor" — um indivíduo cuja faturação atinge até metade do limite do MEI, mas que atua na informalidade —, garantindo-lhe isenção de IBS e CBS em atividades pontuais.</p>
+
+                <h4>Microempresas (ME) e Empresas de Pequeno Porte (EPP) – O Simples Nacional</h4>
+                <p>Direcionado a entidades com faturação anual máxima de R$ 4,8 milhões (com propostas de revisão estrutural para R$ 8 milhões), o Simples Nacional configura um regime unificado que aglomera a arrecadação de até oito tributos distintos (IRPJ, CSLL, PIS, Cofins, IPI, ICMS, ISS e a Contribuição Patronal Previdenciária) numa única guia mensal, o DAS. Este regime revela-se ideal para organizações com encargos avultados com recursos humanos, comércio retalhista voltado para o consumidor final (B2C) e prestadores de serviços de variadas índoles (como agências de publicidade, pequenos restaurantes e consultorias informáticas).</p>
+                <p>A mecânica do Simples Nacional assenta num sistema de alíquotas progressivas, estratificadas em anexos que segregam comércio, indústria e serviços. Um benefício fiscal de capital importância neste regime é o "Fator R", aplicável a certas atividades intelectuais, de saúde e de engenharia. A regra estabelece que, caso o quociente entre a massa salarial (incluindo salários, pró-labore e respetivos encargos sociais) e a receita bruta acumulada dos últimos doze meses (RBT12) seja igual ou superior a 28%, a empresa é tributada pelo Anexo III, beneficiando de uma alíquota inicial de 6%. Se o rácio for inferior a 28%, a tributação é deslocada para o Anexo V, sujeitando a entidade a uma alíquota inicial substancialmente mais gravosa, na ordem dos 15,5%. O planeamento do Fator R exige rigor técnico para não inflacionar artificialmente o teto de isenções, garantindo, em simultâneo, o acesso à taxa reduzida.</p>
+                <p>As exigências de escrituração são atenuadas em comparação com os regimes normais. O cômputo dos impostos é efetuado através do Programa Gerador do Documento de Arrecadação do Simples Nacional Declaratório (PGDAS-D), dispensando a submissão da complexa Escrituração Contábil Fiscal (ECF). O regime atual tem um caráter puramente cumulativo, o que significa que as entidades optantes não transferem créditos integrais de IPI e ICMS para os seus adquirentes.</p>
+
+                <h4>Empresas de Médio Porte – O Lucro Presumido</h4>
+                <p>O Lucro Presumido, aplicável a empresas com faturação anual não superior a R$ 78 milhões, tem sido o regime de eleição para o setor de prestação de serviços no Brasil, abrangendo clínicas médicas, escritórios de advocacia, transportadoras, empresas de construção civil e consultorias. O seu desenho torna-o atrativo para entidades cujas margens de lucro efetivas suplantam de forma expressiva as margens de presunção estipuladas pelo legislador.</p>
+                <p>Neste formato, a tributação sobre o rendimento (IRPJ e CSLL) não incide sobre o lucro real apurado pela contabilidade, mas sim sobre uma base presumida calculada mediante a aplicação de percentuais fixos sobre a receita bruta: tipicamente 8% para a indústria e comércio, e 32% para a esmagadora maioria dos serviços. A vantagem fulcral deste modelo, até ao advento da Reforma Tributária, residia no tratamento dos impostos sobre o consumo. O PIS e a Cofins obedeciam a um regime cumulativo, sujeitando as receitas a uma alíquota combinada de apenas 3,65%, embora negassem peremptoriamente o direito ao desconto de créditos sobre a aquisição de insumos. O ISS (municipal) e o ICMS (estadual) seguiam os trâmites locais.</p>
+                <p>A carga de escrituração no Lucro Presumido é consideravelmente elevada, requerendo o envio de diversas obrigações acessórias integradas no Sistema Público de Escrituração Digital (SPED). As empresas devem transmitir a Escrituração Fiscal Digital (EFD-Contribuições para PIS/Cofins, e EFD-ICMS/IPI), a Escrituração Contábil Digital (ECD) e a ECF. Contudo, eximem-se do controlo minucioso de adições, exclusões e compensações inerentes ao Livro de Apuração do Lucro Real (e-LALUR).</p>
+
+                <h4>Grandes Corporações – O Lucro Real</h4>
+                <p>O Lucro Real afigura-se como o regime mais complexo e rigoroso do ordenamento jurídico brasileiro. É de adoção obrigatória para empresas cuja faturação anual exceda os R$ 78 milhões, bem como para instituições financeiras, bancos, seguradoras e entidades com atividades com exploração de crédito financeiro. Não obstante a obrigatoriedade para grandes conglomerados, muitas organizações de menor porte — especialmente indústrias com vastas cadeias de abastecimento, cadeias de retalho com margens de lucro estreitas, ou empresas a operar sistematicamente com prejuízo — adotam-no de forma voluntária.</p>
+                <p>A tributação dos impostos sobre o rendimento processa-se sobre o lucro contabilístico efetivo, devidamente expurgado e ajustado através do e-LALUR e da Parte B da ECF. A alíquota do IRPJ cifra-se em 15%, com um adicional de 10% sobre a parcela do lucro que ultrapasse um limiar específico, a par da CSLL a 9% (ou até 20% para o setor financeiro). O principal atrativo deste regime, em contraposição ao Lucro Presumido, sempre foi a não cumulatividade do PIS e da Cofins. Embora a alíquota combinada perfaça 9,25%, o regime permite às organizações o desconto de créditos relativos à aquisição de insumos, prestação de serviços, energia e despesas essenciais e relevantes à atividade.</p>
+                <p>A escrituração é de extrema morosidade e risco. Requer governança total sobre a contabilidade societária e fiscal, controlo rigoroso na classificação das despesas que geram ou não crédito (um tema de profunda litigiosidade jurisprudencial no Brasil), e a submissão de um vasto arsenal de obrigações acessórias do SPED, sujeitando a empresa a auditorias profundas.</p>
+
+                <div class="overflow-x-auto">
+                    <table class="article-table">
+                        <thead>
+                            <tr>
+                                <th>Característica Societária</th>
+                                <th>MEI</th>
+                                <th>Simples Nacional</th>
+                                <th>Lucro Presumido</th>
+                                <th>Lucro Real</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Limite de Faturação</strong></td>
+                                <td>R$ 81 mil (projetado R$ 132 mil)</td>
+                                <td>R$ 4,8 milhões (projetado R$ 8 milhões)</td>
+                                <td>R$ 78 milhões</td>
+                                <td>Obrigatório > R$ 78 milhões</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Carga sobre o Rendimento</strong></td>
+                                <td>Isento</td>
+                                <td>Progressiva (Tabelas do DAS)</td>
+                                <td>Presunção (8% Comércio, 32% Serviços)</td>
+                                <td>Lucro Contabilístico Ajustado (e-LALUR)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Carga Atual sobre Consumo</strong></td>
+                                <td>Isento / Valores Fixos</td>
+                                <td>Inserida no DAS (Cumulativa)</td>
+                                <td>PIS/Cofins 3,65% (Cumulativa)</td>
+                                <td>PIS/Cofins 9,25% (Não Cumulativa)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Obrigações de Escrituração</strong></td>
+                                <td>DASN-SIMEI</td>
+                                <td>PGDAS-D, DEFIS</td>
+                                <td>ECD, ECF, EFD-Contribuições</td>
+                                <td>ECD, ECF (e-LALUR), EFD, SPED completo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Alterações no Código Tributário Nacional (CTN) e o Arcabouço Jurisdicional do IVA</h3>
+                <p>A promulgação da Emenda Constitucional nº 132/2023 despoletou a necessidade de um quadro normativo infraconstitucional robusto. Através da aprovação da Lei Complementar nº 214/2025 (Lei Geral do IBS, da CBS e do Imposto Seletivo) e da Lei Complementar nº 227/2026, o legislador procedeu a alterações cirúrgicas no Código Tributário Nacional (Lei nº 5.172/1966), dirimindo conflitos federativos e reconfigurando a gestão de impostos patrimoniais.</p>
+
+                <h4>Modificações no ITBI e IPVA e os Reflexos nos Municípios</h4>
+                <p>A Lei Complementar nº 227/2026 introduziu dispositivos inovadores no CTN, nomeadamente a modificação do artigo 35 e a inserção do artigo 35-A, visando modernizar a incidência e a base de cálculo do Imposto sobre a Transmissão de Bens Imóveis (ITBI). Historicamente, a base de cálculo deste imposto gerou vasto contencioso. O Superior Tribunal de Justiça (STJ), sob o Tema 1.113, havia pacificado que a base deveria corresponder ao valor da transação declarado pelo contribuinte. Contudo, a nova redação legal confere maior latitude aos Municípios para arbitrarem o valor venal com recurso a referenciais técnicos, dados notariais e características tipológicas do imóvel, o que poderá afastar a presunção de veracidade da declaração do contribuinte.</p>
+                <p>Esta alteração tem um eco imediato no entendimento fixado pelo Supremo Tribunal Federal (STF) no Tema 796, relativo à imunidade do ITBI na integralização de capital social. A premissa de um valor de referência objetivamente estipulado pela autoridade municipal reabre o risco de o Fisco exigir imposto sobre qualquer "excedente" entre o valor do capital a integralizar e o referencial de mercado do imóvel aportado à sociedade.</p>
+                <p>No âmbito do Imposto sobre a Propriedade de Veículos Automotores (IPVA), procedeu-se à ampliação constitucional e regulamentar da base de incidência. O tributo passou a alcançar veículos de natureza aquática (embarcações, jet skis) e aeronaves (jatos executivos, helicópteros), mitigando uma regressividade secular do sistema, embora salvaguardando exceções para aeronaves agrícolas e de instrução.</p>
+
+                <h4>A Arquitetura Institucional: O Comitê Gestor do IBS (CG-IBS)</h4>
+                <p>Uma das inovações mais fraturantes no pacto federativo brasileiro foi a supressão das 27 legislações estaduais e dos milhares de regulamentos municipais atinentes ao consumo, em prol de um regramento único nacional. Para viabilizar esta transição sem esvaziar a autonomia subnacional, a LC 227/2026 institucionalizou o Comitê Gestor do Imposto sobre Bens e Serviços (CG-IBS).</p>
+                <p>O CG-IBS atua como uma entidade pública de regime especial, dotada de independência técnica e administrativa, não subordinada hierarquicamente a qualquer órgão governamental. As suas competências englobam a edição de um regulamento unificado, a uniformização da interpretação legal, a arrecadação integrada, o processamento de retenções (como o Split Payment) e a subsequente distribuição das receitas ao Distrito Federal, Estados e Municípios. A entidade conta com uma governança paritária (representantes estaduais e municipais) e prevê a alternância da presidência entre ambas as esferas a cada biénio.</p>
+                <p>Para precaver a rutura orçamental dos Municípios habituados à arrecadação direta do ISS e dos Estados altamente dependentes do ICMS, a legislação instituiu novos critérios de repartição. Os fundos arrecadados pelo IBS Estadual, por exemplo, passarão a ser distribuídos tendo em consideração parâmetros como a dimensão populacional (com peso esmagador de 80%), indicadores de melhoria e equidade na educação (10%), métricas de preservação ambiental (5%) e parcelas equitativas (5%). Adicionalmente, foi estruturado um Fundo de Compensação, cujo financiamento é suportado de forma solidária, para estabilizar eventuais quebras de receita nas fazendas locais, especialmente para os municípios predominantemente industriais ou exportadores que perdem arrecadação em prol da tributação no destino.</p>
+
+                <h3>A Trava de 26,5% e o Cronograma da Reforma</h3>
+                <p>A substituição do PIS, da Cofins, do IPI, do ICMS e do ISS pelos novos tributos está condicionada ao princípio da "neutralidade fiscal", cujo objetivo é modernizar o processo sem provocar um aumento aglutinado da carga tributária sobre a sociedade. Para tal, a Lei Complementar estabeleceu um teto de referência consolidado.</p>
+                <p>A soma das alíquotas de referência da CBS e do IBS está legalmente travada num patamar máximo de 26,5%. Estimativas preliminares apontam que a CBS ocupará cerca de 12,5% desta fatia, ao passo que o IBS absorverá aproximadamente 14% (dos quais 11,5% destinados aos Estados e 2,5% aos Municípios). A Lei institui um mecanismo de "avaliação quinquenal". Caso o escrutínio demonstre que as alíquotas reais necessárias para manter o equilíbrio orçamental superam os 26,5%, o governo encontra-se obrigado, num prazo máximo de noventa dias, a remeter ao Congresso um projeto de lei vocacionado a reduzir isenções e regimes favorecidos, num esforço de auto-correção que visa estancar o aumento crónico da carga tributária. Se não fossem os regimes de exceção inseridos durante a tramitação parlamentar, a Confederação Nacional da Indústria (CNI) projetou que a alíquota padrão poderia situar-se em parcos 21,7%.</p>
+                
+                <p>A transição obedecerá a um roteiro prudencial a iniciar em 2026:</p>
+                
+                <div class="overflow-x-auto">
+                    <table class="article-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">Ano de Implementação</th>
+                                <th>Evento Crítico e Etapa de Transição</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>2026</strong></td>
+                                <td>Fase de Testes. Entrada em vigor das alíquotas informativas de 1% (0,9% para CBS e 0,1% para IBS). Sem penalidades por omissão de preenchimento. Compensação permitida com o PIS/Cofins devido no mesmo período.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2027</strong></td>
+                                <td>A Grande Ruptura. Extinção cabal do PIS e da Cofins. A CBS assume a alíquota plena (entre 8,8% e 9,3%). O IBS mantém-se simbólico (0,1%). O IPI é reduzido a zero (exceto Zona Franca de Manaus). Início do Imposto Seletivo e do Split Payment.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2029 a 2032</strong></td>
+                                <td>Declínio do Modelo Antigo. Redução gradual das alíquotas do ICMS e ISS à razão de 10% ao ano, acompanhada pelo incremento proporcional do IBS, instaurando um ambiente de dupla complexidade contábil.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2033</strong></td>
+                                <td>Vigência Plena. Extinção definitiva do ICMS e do ISS. O IVA Dual e o regime não cumulativo encontram-se plenamente operacionais.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>O Imposto Seletivo e os Regimes Diferenciados</h3>
+                <p>Em abono do princípio de essencialidade e da proteção da saúde pública e do meio ambiente, a Lei Complementar nº 214/2025 delineou tratamentos díspares ao que considera bens fundamentais e bens nocivos.</p>
+
+                <h4>A Taxação de Externalidades Negativas (Imposto Seletivo)</h4>
+                <p>O Imposto Seletivo (IS), alcunhado de "imposto do pecado", constitui uma exação extrafiscal de competência federal que será deflagrada em 2027, substituindo a função outrora atribuída ao IPI. A sua incidência assenta não apenas no consumo, mas estende-se a etapas de produção, extração e importação de itens listados. As alíquotas projetadas impõem alterações sísmicas no modelo de negócio dos subsetores afetados.</p>
+                <p>Para os produtos fumígenos e derivados de tabaco, as projeções escalonadas apontam para uma alíquota asfixiante que pode atingir 250% até 2033. No segmento das bebidas alcoólicas, a tributação obedecerá a um figurino duplo: uma componente percentual (ad valorem) aliada a uma alíquota específica ditada pelo teor alcoólico puro, estimando-se uma sobrecarga entre 46% e 62% sobre o produto. As bebidas açucaradas, de forma premente, atrairão alíquotas na ordem dos 32%, tendo a Câmara dos Deputados rejeitado a fixação de um teto limitador de 2%. Notavelmente, setores da mineração, petróleo e gás natural, mesmo destinados à exportação, não lograrão isenção absoluta, ficando sujeitos a uma taxa extrativa de 0,25%, o que impacta os custos iniciais das matérias-primas e o planeamento da balança comercial. Veículos, embarcações e certas aeronaves submetem-se a avaliações intrincadas (como eficiência energética) para aferir a incidência. Produtos outrora previstos, como armas e munições, foram preteridos das listas de incidência, suscitando polémicas no hemiciclo legislativo.</p>
+
+                <h4>Exceções à Regra: Regimes Financeiros e de Restauração</h4>
+                <p>Concomitantemente, o legislador concebeu réguas de tributação distintas para evitar ruturas sociais. A Cesta Básica Nacional de Alimentos beneficiará de isenção cabal (alíquota zero) de IBS e CBS, blindando o acesso nutricional da população. Setores conexos à saúde e educação ostentarão uma redução perene de 60% face à alíquota padrão.</p>
+                <p>Os serviços financeiros, devida à sua intangibilidade e especificidade operacional, estarão adstritos a um regime próprio. Entidades sob escrutínio do Sistema Financeiro Nacional, como bancos, seguradoras (excluindo saúde) e prestadores de serviços de ativos virtuais, terão os tributos aplicados sobre spreads e comissões. Para mitigar os impactos, a tributação escalará gradualmente, partindo de 10,85% em 2027 até colmatar em 12,5% em 2033. Contudo, uma particularidade deste regime é a impossibilidade severa de apropriação de créditos por adquirentes. Empresas não financeiras que liquidem IBS/CBS em despesas bancárias ou de seguros (como derivatives ou corretagem) não poderão diluir esse custo na sua cadeia produtiva, enfrentando custos operacionais incompressíveis.</p>
+                <p>No ramo da hotelaria e restauração (bares e restaurantes), a opção por um regime diferenciado permite uma redução efetiva de 40% nas alíquotas de IBS e CBS sobre o fornecimento local de refeições preparadas e manipuladas. No entanto, este suposto benefício esconde uma faca de dois gumes no âmbito corporativo (B2B): as aquisições de serviços de catering ou refeições sob este regime reduzido denegam ao adquirente o direito ao crédito fiscal. Esta premissa incita as corporações a avaliarem o custo-benefício entre subcontratar refeitórios (cujo imposto é "custo afundado") ou internalizar o preparo de refeições no seio da própria empresa, para assegurar a monetização dos créditos. Outrossim, os valores recolhidos a título de gorjeta ficam expurgados da base de cálculo apenas até ao teto de 15%, forçando restaurantes de alta gastronomia a reverem as suas grelhas remuneratórias.</p>
+
+                <h3>O Mecanismo Tecnológico e Financeiro do Split Payment</h3>
+                <p>O esteio procedimental concebido para erradicar a sonegação fiscal e efetivar a não cumulatividade no ato é o Split Payment (pagamento cindido), uma disrupção que subverte a dinâmica tradicional do capital de maneio. No figurino atual, a empresa recebe o valor integral do cliente no momento da venda, logrando fruir dessa liquidez informal (float) até ao momento de liquidar o imposto no dia 20 do mês subsequente.</p>
+                <p>O planeamento estipula que a partir de 2027, primeiramente no formato B2B e abrangendo os arranjos de pagamentos eletrónicos (PIX, TED, cartões), a arquitetura financeira proceda ao desmembramento automático do valor transacionado. A Lei Complementar prevê graus distintos de implementação:</p>
+                <ul>
+                    <li><strong>Split Payment Superinteligente (Integração Plena):</strong> No preciso momento do pagamento, a instituição financeira (PSP) envoca, através de Interfaces de Programação de Aplicações (APIs), o sistema governamental. Em milissegundos, são apurados os créditos acumulados pelo fornecedor (derivados de faturas de compras efetuadas a montante). O sistema retém tão somente o valor estritamente devedor da CBS e do IBS, remetendo a diferença limpa à conta da empresa e transferindo o tributo aos cofres públicos.</li>
+                    <li><strong>Split Payment Inteligente (Offline):</strong> Caso a consulta sincronizada se revele inoperante, o valor ilíquido dos tributos é apartado e bloqueado no momento da venda. Posteriormente, no prazo estipulado de até três dias úteis, procede-se ao cálculo do acerto de contas; havendo devolução (estorno por créditos), esta ingressa na tesouraria.</li>
+                    <li><strong>Split Payment Simplificado:</strong> Emprega uma alíquota média ponderada pretérita do contribuinte, desonerando o cálculo item a item na transação, cabendo um ajuste fiscal no final do período de apuração.</li>
+                </ul>
+                <p>A introdução desta engrenagem em 2027 impõe uma corrida tecnológica brutal para as software houses e fornecedores de Sistemas de Gestão Empresarial (ERPs). Para as corporações, os constrangimentos de tesouraria requerem um reperfilamento das projeções de cash-flow, exigindo provisões de capital de giro exógeno, dado que o dinheiro destinado ao imposto não estacionará transitoriamente na conta bancária operacional.</p>
+
+                <h3>Relatório Comparativo das Tipologias Societárias: O "Antes e Depois" de 2027</h3>
+                <p>O impacto material que eclode em janeiro de 2027, assinalado pela erradicação do PIS e da Cofins e pela imposição da CBS não cumulativa, redesenha as decisões de planeamento de cada empresa brasileira, exigindo a simulação tempestiva dos cenários.</p>
+
+                <h4>1. Impactos Estratégicos no MEI</h4>
+                <p><strong>O Paradigma Pré-Reforma:</strong> O MEI habituou-se a uma existência de complacência formal. Pautado por um pagamento irrisório via DAS e isento de emitir nota fiscal nas vendas a consumidores finais singulares (B2C), operava sob uma opacidade administrativa. As empresas do regime normal toleravam a falta de créditos tributários pela perceção do baixo custo basal de fornecimento.</p>
+                <p><strong>O Paradigma 2027:</strong> O MEI será forçado a transitar para a formalidade digital através da emissão compulsória de Nota Fiscal Eletrónica (NF-e) para a totalidade das transações, munido de certificado digital. Os cruzamentos instantâneos das guias da Receita Federal promoverão a identificação de empreendedores que fracionem faturamentos artificiais para iludir os limites.</p>
+                <p>O embate financeiro materializa-se na arena B2B. A legislação preservou a dispensa do destaque de CBS/IBS pelo MEI. Todavia, na vigência de um IVA puro centrado em créditos, o adquirente (uma corporação do Lucro Real) necessita faturar créditos. Ao comprar de um MEI, a empresa adquire um bem/serviço desprovido de "escudo fiscal". Deste modo, o produto do MEI encarece substancialmente na matriz de custos da empresa normal comparativamente a um fornecedor que transfira a integralidade do crédito (mesmo que com preço de tabela superior). Para o MEI voltado ao consumidor comum, nada ressoa; para o fornecedor da cadeia produtiva, o modelo impulsiona um desenquadramento voluntário em busca de competitividade.</p>
+
+                <h4>2. A Bifurcação Existencial do Simples Nacional</h4>
+                <p><strong>O Paradigma Pré-Reforma:</strong> As micro e pequenas empresas beneficiavam da pacificação unificada do DAS, aliviando o fardo das obrigações acessórias, enquanto balizavam a competitividade através do Fator R. Os clientes pessoa jurídica assumiam, historicamente, restrições à apropriação de créditos de ICMS e inexistência nos demais impostos.</p>
+                <p><strong>O Paradigma 2027:</strong> As resoluções do Comitê Gestor obrigarão estas entidades a decidirem o seu trajeto em setembro de 2026, com vigência para 2027. A lei apresenta duas opções inexoráveis, irrevogáveis de forma semestral:</p>
+                <ul>
+                    <li><strong>Simples Unificado:</strong> Mantém-se a filosofia atual. CBS e IBS são pagos dentro do DAS. Contudo, o crédito repassado para o adquirente restringir-se-á rigidamente à percentagem de IVA que estiver efetivamente inserida na tabela do DAS. É a solução cabal para o negócio vocacionado ao varejo B2C, pois minimiza a burocracia e evita ruturas, dado que o cliente final carece de créditos.</li>
+                    <li><strong>Simples Híbrido:</strong> A entidade mantém as demais exigências no DAS (IRPJ, CSLL, Previdência), mas opta por extrair a CBS e o IBS e pagar "por fora", sujeitando-se às normas regulares (débito/crédito) destes impostos e submetendo-se à alíquota padrão da reforma (até 26,5% somados).</li>
+                </ul>
+                <p>A escolha do Simples Híbrido representa um aumento drástico e estrutural da carga tributária corrente. Uma empresa no Anexo III, com receita de R$ 50 mil, que hoje suporta um DAS contido, ver-se-á alvejada pelas alíquotas plenas de IBS/CBS, multiplicando exponencialmente as suas obrigações acessórias, além do impacto asfixiante do Split Payment. Esta via só se justifica caso o portfolio da empresa assente essencialmente em transações B2B com entidades do Lucro Real, em que a capacidade de fornecer o "crédito cheio" se consolide como o passaporte único para preservar laços contratuais.</p>
+
+                <h4>3. A Implosão Sistémica do Lucro Presumido no Setor de Serviços</h4>
+                <p><strong>O Paradigma Pré-Reforma:</strong> As empresas de prestação de serviços ancoraram-se no Lucro Presumido para capitalizar sobre um vácuo no planeamento fiscal: os parcos 3,65% cumulativos de PIS e Cofins e o teto de 5% de ISS. O facto de a folha de salários não conferir direito a crédito passava incólume, posto que a cumulatividade já pressupunha uma alíquota exígua, garantindo a maximização do retorno para os acionistas das clínicas, consultorias, logísticas e assessorias profissionais.</p>
+                <p><strong>O Paradigma 2027:</strong> Esta tipologia suportará o maior abalo sísmico da Reforma Tributária. Com a eliminação da cumulatividade e a defunção do PIS/Cofins, a entidade prestadora de serviços será arrastada, na perspetiva federal, para o mesmo ecossistema de CBS que uma megaindústria do Lucro Real. A alíquota ascenderá a patamares previstos de 8,8% a 9,3%, exigindo a correspondente dedução de créditos para mitigação.</p>
+                <p>Ocorre que o "insumo" principal e esmagador do prestador de serviços é humano (o capital intelectual, o labor da mão de obra), o qual permanece sumariamente impedido de gerar créditos de IVA, tal qual se verifica na Europa. O corolário lógico é que as empresas do Lucro Presumido não terão montantes passíveis de crédito (salvo consumíveis triviais, energia, comunicações) para dissipar os 9,3% de CBS e, supervenientemente, a parcela do IBS em 2029.</p>
+                <p>Estudos corroboram que o aumento líquido do fardo tributário sobre o consumo para este setor pode galgar a fronteira dos 150%, forçando compressões de margens que ameaçam a continuidade de operações desprovidas de musculatura financeira. O reajuste do pricing com o cliente final passará a ser uma imposição perentória. Simultaneamente, a distinção clássica e binária que outrora afastava empresários do Lucro Real esbate-se; doravante, a decisão circunscreve-se à conveniência da tributação sobre a renda, exigindo recálculos matemáticos pormenorizados sobre a viabilidade da manutenção do regime Presumido.</p>
+
+                <h4>4. A Governança e Maximização de Créditos no Lucro Real</h4>
+                <p><strong>O Paradigma Pré-Reforma:</strong> As grandes corporações lidam com um emaranhado infindável de querelas judiciais. A definição lacunosa do que constituía "insumo essencial" para a almejada dedução no PIS/Cofins não cumulativo gerava multas estratosféricas. O labirinto de 27 legislações de ICMS multiplicava os custos intrínsecos das áreas de compliance.</p>
+                <p><strong>O Paradigma 2027:</strong> O IVA Dual extingue a jurisprudência nebulosa. A não cumulatividade passa a ser ubíqua e material (crédito financeiro): qualquer compra de bens e serviços efetuada por uma entidade ao abrigo do regime regular, que detenha a tributação correspondente consignada, permitirá a apropriação incondicional do crédito. Bens do ativo imobilizado (máquinas, equipamentos, frota, software) passam a conferir crédito integral num espetro temporal assinalavelmente exíguo ou mesmo automático.</p>
+                <p>A transição, todavia, consubstancia uma janela de complexidade titânica (Dupla Conformidade). O ICMS, IPI e ISS coexistirão com o IBS e CBS até 2033. Os sistemas de ERP (Enterprise Resource Planning) das companhias terão que orquestrar a contabilização de regimes em extinção ao lado dos nascentes. Adita-se a este cenário a corrida para documentar, atestar e promover as diligências necessárias à homologação dos bilionários saldos credores pretéritos (sobretudo de ICMS e PIS/Cofins acumulados em inventários e exportações), para os quais a LC 214/2025 delineou prazos exíguos de caducidade antes do esboroamento do modelo atual. A eficiência passará, impreterivelmente, pelo remapeamento logístico, pela depuração da cadeia de abastecimento para suprimir elos com empresas do MEI ou do Simples Unificado, e pela integração API instantânea para navegar o rigoroso ecossistema de Split Payment no mercado transacional.</p>
+
+                <h3>Conclusões Analíticas e Implicações Decisórias</h3>
+                <p>O esquadrinhamento da Reforma Tributária brasileira — consubstanciada na EC nº 132/2023, LC nº 214/2025 e LC nº 227/2026 — evidencia que a transição supera largamente a dimensão de uma singela alteração alíquota/base. O sistema transfigura os princípios de competitividade, tesouraria, fixação de preços e atratividade na cadeia de fornecimento.</p>
+                <p>A observação holística permite induzir três ordens de constatações fundamentais para as administrações empresariais:</p>
+                <ul>
+                    <li><strong>Primeiramente</strong>, o fim do planeamento baseado na cegueira sobre custos no setor de serviços. A imposição da CBS em 2027 estilhaça a rentabilidade das entidades sediadas no Lucro Presumido, em especial nos setores de trabalho intensivo que não granjeiam a apropriação de créditos através de insumos operacionais. A omissão no repasse destas majorações aos preços de venda incorrerá na falência silenciosa por défice de margem operativa. Em paralelo, a adoção de posturas defensivas baseadas no aparente conforto do ano de 2026 — que opera alíquotas meramente ilustrativas — conduzirá à surpresa tática irreversível em 2027.</li>
+                    <li><strong>Segundamente</strong>, a reestruturação do ecossistema das Micro e Pequenas Empresas (B2B vs B2C). A exigência do cruzamento implacável da faturação eletrónica (mesmo no MEI) e o constrangimento imposto pelo corte do crédito nas operações efetuadas com optantes do Simples Unificado instituem uma segmentação biológica no mercado. Organizações que interagem em cadeias de montagem industrial (B2B) serão inexoravelmente pressionadas a transmigrar para o Simples Híbrido, sujeitando-se ao rigor processual análogo ao de grandes indústrias, sob pena de repúdio e marginalização por parte de grandes clientes que valorizam unicamente o "crédito cheio".</li>
+                    <li><strong>Por fim</strong>, o confisco da liquidez momentânea através do Split Payment. Ao integrar estruturalmente os sistemas bancários com os da autoridade tributária, o legislador suprimiu a hipótese da sonegação do consumo e erradicou a margem transiente de endividamento da empresa face ao Estado. Ao se apartar a parcela de IVA no momento do ato comercial, os fluxos de caixa e a alocação do capital de giro dos contribuientes têm de ser imediata e integralmente reprojetados. Os agentes económicos que descurarem a parametrização dos seus sistemas de pagamento à data inicial expõem-se à rutura total de liquidez nos primórdios do novo panorama fiscal brasileiro.</li>
+                </ul>
+            </article>
+            <!-- FIM DO ARTIGO -->
+
         </div>
     </main>
 
@@ -137,7 +341,7 @@
                 ],
                 compliance: "Substituição de dezenas de guias (GIA, EFD ICMS/IPI) por uma única escrituração centralizada no Comitê Gestor do IBS. Foco total em NF-e digital.",
                 warning: "Bebidas alcoólicas e açucaradas terão alíquota extra (Imposto Seletivo) que pode elevar o preço final para desestimular o consumo.",
-                chartData: [22, 28], // Antes vs Depois (carga relativa)
+                chartData: [22, 28],
                 labels: ["IPI/PIS/ICMS", "IBS/CBS/IS"]
             },
             supermercado: {
@@ -207,7 +411,6 @@
         function showSector(key) {
             const data = sectors[key];
             
-            // UI Update
             document.querySelectorAll('.sector-btn').forEach(b => b.className = "sector-btn px-6 py-3 rounded-xl font-bold text-sm transition-all hover:bg-slate-50");
             document.getElementById(`btn-${key}`).className = "sector-btn px-6 py-3 rounded-xl font-bold text-sm transition-all tab-active shadow-sm";
 
@@ -256,7 +459,6 @@
             });
         }
 
-        // Init
         window.onload = () => showSector('bebidas');
     </script>
 </body>
