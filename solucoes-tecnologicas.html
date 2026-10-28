@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluções Tecnológicas | Pedro Teixeira | Assessoria Empresarial Preventiva</title>
+    <meta name="description" content="Soluções Tecnológicas da Teixeira Assessoria: M&amp;A Analyzer (valuation e due diligence) e ConsultaJá Licitações (dossiê de edital e busca no PNCP). Web, Windows e Android.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0B132B',
+                        'brand-blue': '#1C2541',
+                        'brand-gold': '#D4AF37',
+                        'brand-silver': '#E2E8F0',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+        .gold-gradient {
+            background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .smooth-scroll { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="text-slate-800 antialiased smooth-scroll">
+
+    <!-- Navbar (Atualizada e Padronizada) -->
+   <nav class="bg-brand-dark text-white p-4 sticky top-0 z-50 shadow-lg border-b border-brand-gold/20">
+        <div class="container mx-auto flex justify-between items-center">
+            
+            <!-- Logo Oficial -->
+            <div class="flex items-center justify-center">
+                <a href="index.html">
+                    <img src="image_9daec3.png" alt="Pedro Teixeira Assessoria" class="h-10 md:h-14 object-contain">
+                </a>
+            </div>
+
+            <!-- Menu Desktop (Invisível no mobile) -->
+            <div class="hidden md:flex space-x-6 text-sm tracking-wide items-center">
+                <a href="index.html#servicos" class="hover:text-brand-gold transition">PORTFÓLIO</a>
+                <a href="correspondente.html" class="hover:text-brand-gold transition uppercase">Correspondente Jurídico</a>
+                <a href="guia_setorial_reforma_2027.html" class="hover:text-brand-gold transition uppercase">Reforma Tributária</a>
+                <a href="solucoes-tecnologicas.html" class="text-brand-gold transition uppercase" aria-current="page">Soluções Tecnológicas</a>
+                <a href="index.html#contato" class="hover:text-brand-gold transition">CONTATO</a>
+            </div>
+            
+            <!-- Botões da Direita -->
+            <div class="flex items-center gap-4">
+                <!-- WhatsApp Header (Some em telas muito estreitas para dar espaço ao menu) -->
+                <a href="https://wa.me/5516996149778" target="_blank" class="hidden sm:flex bg-brand-gold text-brand-dark px-4 py-2 rounded font-semibold hover:bg-yellow-500 transition text-sm items-center">
+                    <i class="fab fa-whatsapp mr-2 text-lg"></i> <span class="hidden lg:inline">(16) 99614-9778</span><span class="lg:hidden text-xs">WhatsApp</span>
+                </a>
+                
+                <!-- Botão Menu Hamburger (Aparece só no mobile) -->
+                <button id="mobile-menu-btn" class="md:hidden text-brand-gold hover:text-white focus:outline-none text-2xl transition">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Dropdown Mobile (Escondido por padrão) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark border-t border-brand-gold/20 mt-4 absolute w-full left-0 shadow-xl">
+            <div class="flex flex-col space-y-4 py-6 px-4 text-center text-sm font-bold tracking-widest bg-brand-dark">
+                <a href="index.html#servicos" class="block hover:text-brand-gold transition py-2 mobile-link">PORTFÓLIO</a>
+                <a href="correspondente.html" class="block hover:text-brand-gold transition uppercase py-2 mobile-link">Correspondente Jurídico</a>
+                <a href="guia_setorial_reforma_2027.html" class="block hover:text-brand-gold transition uppercase py-2 mobile-link">Reforma Tributária</a>
+                <a href="solucoes-tecnologicas.html" class="block text-brand-gold transition uppercase py-2 mobile-link" aria-current="page">Soluções Tecnológicas</a>
+                <a href="index.html#contato" class="block hover:text-brand-gold transition py-2 mobile-link">CONTATO</a>
+                <a href="https://wa.me/5516996149778" target="_blank" class="sm:hidden mx-auto mt-4 inline-flex bg-brand-gold text-brand-dark px-8 py-3 rounded font-bold hover:bg-yellow-500 transition text-sm items-center shadow-lg">
+                    <i class="fab fa-whatsapp mr-2 text-lg"></i> Fale Conosco
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-brand-dark text-white pt-20 pb-16 px-4 text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="container mx-auto max-w-4xl relative z-10 flex flex-col items-center">
+            <span class="text-xs tracking-[0.2em] text-brand-gold uppercase font-bold mb-4">Teixeira Assessoria</span>
+            <h1 class="text-4xl md:text-5xl font-serif tracking-wide mb-6">Soluções <span class="gold-gradient">Tecnológicas</span></h1>
+            <p class="text-gray-300 max-w-2xl mx-auto leading-relaxed">Sistemas para decisões de negócio. Ferramentas online, para Windows e Android, com demonstração gratuita antes da assinatura, login por código no e-mail e pagamento via Pix.</p>
+            <div class="mt-10 flex flex-wrap justify-center gap-4">
+                <a href="#mea" class="bg-brand-gold text-brand-dark hover:bg-yellow-500 px-6 py-3 rounded uppercase tracking-wider font-bold transition text-sm shadow-[0_0_15px_rgba(212,175,55,0.4)]">M&amp;A Analyzer</a>
+                <a href="#licitacoes" class="border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-dark px-6 py-3 rounded uppercase tracking-wider font-bold transition text-sm">ConsultaJá Licitações</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Destaques -->
+    <section class="bg-white border-b border-gray-200 py-10 px-4">
+        <div class="container mx-auto max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div><i class="fas fa-globe text-brand-gold text-2xl mb-2"></i><p class="text-sm font-semibold text-brand-dark">Web</p><p class="text-xs text-gray-500">direto no navegador</p></div>
+            <div><i class="fab fa-windows text-brand-gold text-2xl mb-2"></i><p class="text-sm font-semibold text-brand-dark">Windows</p><p class="text-xs text-gray-500">aplicativo para assinantes</p></div>
+            <div><i class="fab fa-android text-brand-gold text-2xl mb-2"></i><p class="text-sm font-semibold text-brand-dark">Android</p><p class="text-xs text-gray-500">aplicativo para assinantes</p></div>
+            <div><i class="fas fa-qrcode text-brand-gold text-2xl mb-2"></i><p class="text-sm font-semibold text-brand-dark">Pix</p><p class="text-xs text-gray-500">acesso liberado após o pagamento</p></div>
+        </div>
+    </section>
+
+    <!-- Sistemas -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="container mx-auto max-w-6xl space-y-20">
+
+            <!-- M&A Analyzer -->
+            <article id="mea" class="scroll-mt-28 bg-white border border-gray-200 rounded-sm shadow-md overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+                <a href="https://mea.consultarja.com.br/" target="_blank" rel="noopener" class="block bg-brand-dark overflow-hidden group">
+                    <img src="solucoes_mea_demo.jpg" alt="Relatório de exemplo do M&amp;A Analyzer com dados fictícios" loading="lazy" class="w-full h-full object-cover object-left-top group-hover:scale-105 transition duration-700">
+                </a>
+                <div class="p-8 md:p-10 flex flex-col">
+                    <span class="text-xs tracking-[0.2em] text-brand-gold uppercase font-bold">Fusões e aquisições</span>
+                    <h2 class="text-3xl font-serif font-bold text-brand-dark mt-2 mb-4">M&amp;A Analyzer</h2>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-5">Valuation e due diligence para aquisições, fusões, cisões e venda de empresas — de operações pequenas a grandes e cross-border.</p>
+                    <ul class="space-y-2 text-sm text-gray-700 mb-6">
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i>Valuation por DCF, múltiplos e valor patrimonial, com cenários conservador, base e otimista</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i>Estrutura de deal: sinergias, earn-out, escrow e preço máximo do comprador</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i>Checklist de due diligence por setor e estrutura, com exportação em CSV</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i>Relatório em PDF pronto para a negociação</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i>Consulta de CNPJ e indicadores do Banco Central</li>
+                    </ul>
+                    <div class="flex items-end gap-2 mb-6">
+                        <span class="text-3xl font-bold text-brand-dark">R$ 97</span><span class="text-sm text-gray-500 mb-1">/ 30 dias · Web, Windows e Android</span>
+                    </div>
+                    <div class="mt-auto flex flex-wrap gap-3">
+                        <a href="https://mea.consultarja.com.br/#exemplo" target="_blank" rel="noopener" class="bg-brand-dark text-white px-5 py-3 rounded font-semibold hover:bg-brand-gold hover:text-brand-dark transition text-sm"><i class="fas fa-play mr-2"></i>Ver demonstração</a>
+                        <a href="https://mea.consultarja.com.br/relatorio-exemplo.html" target="_blank" rel="noopener" class="border border-brand-dark text-brand-dark px-5 py-3 rounded font-semibold hover:bg-brand-dark hover:text-white transition text-sm"><i class="far fa-file-alt mr-2"></i>Relatório de exemplo</a>
+                        <a href="https://mea.consultarja.com.br/?entrar=1" target="_blank" rel="noopener" class="bg-brand-gold text-brand-dark px-5 py-3 rounded font-semibold hover:bg-yellow-500 transition text-sm"><i class="fas fa-sign-in-alt mr-2"></i>Entrar ou assinar</a>
+                    </div>
+                    <p class="text-[11px] text-gray-400 mt-5">Ferramenta de análise e negociação; não é laudo nem recomendação de investimento.</p>
+                </div>
+            </article>
+
+            <!-- ConsultaJá Licitações -->
+            <article id="licitacoes" class="scroll-mt-28 bg-white border border-gray-200 rounded-sm shadow-md overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+                <div class="p-8 md:p-10 flex flex-col order-2 lg:order-1">
+                    <span class="text-xs tracking-[0.2em] text-brand-gold uppercase font-bold">Compras públicas</span>
+                    <h2 class="text-3xl font-serif font-bold text-brand-dark mt-2 mb-4">ConsultaJá Licitações</h2>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-5">Dossiê do edital em minutos: prazos, exigências e riscos organizados para a sua empresa decidir se participa — conforme a Lei 14.133/2021.</p>
+                    <ul class="space-y-2 text-sm text-gray-700 mb-6">
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i>Leitura do edital (PDF) com dossiê de prazos, exigências e riscos</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i>Busca de licitações abertas no PNCP e em diários oficiais</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i>Acompanhamento automático por palavra-chave e UF</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i>Perfil da empresa para conferir a habilitação</li>
+                    </ul>
+                    <div class="flex items-end gap-2 mb-6">
+                        <span class="text-3xl font-bold text-brand-dark">R$ 49</span><span class="text-sm text-gray-500 mb-1">/ 30 dias · Web, Windows e Android</span>
+                    </div>
+                    <div class="mt-auto flex flex-wrap gap-3">
+                        <a href="https://licitacao.consultarja.com.br/" target="_blank" rel="noopener" class="bg-brand-dark text-white px-5 py-3 rounded font-semibold hover:bg-brand-gold hover:text-brand-dark transition text-sm"><i class="fas fa-play mr-2"></i>Ver exemplo de dossiê</a>
+                        <a href="https://licitacao.consultarja.com.br/?entrar=1" target="_blank" rel="noopener" class="bg-brand-gold text-brand-dark px-5 py-3 rounded font-semibold hover:bg-yellow-500 transition text-sm"><i class="fas fa-sign-in-alt mr-2"></i>Entrar ou assinar</a>
+                    </div>
+                    <p class="text-[11px] text-gray-400 mt-5">O sistema apoia a análise; não assina, não protocola e não fala com o órgão.</p>
+                </div>
+                <a href="https://licitacao.consultarja.com.br/" target="_blank" rel="noopener" class="block bg-brand-dark overflow-hidden group order-1 lg:order-2">
+                    <img src="solucoes_licitacoes_demo.jpg" alt="Exemplo de dossiê de edital do ConsultaJá Licitações" loading="lazy" class="w-full h-full object-cover object-left-top group-hover:scale-105 transition duration-700">
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Como funciona -->
+    <section class="py-20 px-4 bg-white">
+        <div class="container mx-auto max-w-5xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-serif font-bold text-brand-dark mb-4 uppercase tracking-wide">Como <span class="gold-gradient">funciona</span></h2>
+                <div class="w-20 h-1 bg-brand-gold mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-6 border border-gray-200 rounded-sm"><div class="text-brand-gold font-serif text-3xl font-bold mb-2">01</div><h3 class="font-bold text-brand-dark mb-2">Veja a demonstração</h3><p class="text-sm text-gray-600">Sem login, navegue pelo exemplo completo com dados fictícios.</p></div>
+                <div class="p-6 border border-gray-200 rounded-sm"><div class="text-brand-gold font-serif text-3xl font-bold mb-2">02</div><h3 class="font-bold text-brand-dark mb-2">Assine pelo Pix</h3><p class="text-sm text-gray-600">Informe o e-mail e pague o Pix. Após a confirmação, o acesso é liberado por 30 dias.</p></div>
+                <div class="p-6 border border-gray-200 rounded-sm"><div class="text-brand-gold font-serif text-3xl font-bold mb-2">03</div><h3 class="font-bold text-brand-dark mb-2">Entre com código</h3><p class="text-sm text-gray-600">Receba um código de 6 dígitos no e-mail — sem senha — e use na web, no Windows ou no Android.</p></div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="https://wa.me/5516996149778?text=Olá, gostaria de saber mais sobre as Soluções Tecnológicas." target="_blank" class="inline-flex items-center bg-brand-dark text-white px-8 py-3 rounded font-semibold hover:bg-brand-gold hover:text-brand-dark transition text-sm"><i class="fab fa-whatsapp mr-2 text-lg"></i>Dúvidas? Fale pelo WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#050914] text-gray-500 py-10">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            
+            <div class="mb-6 md:mb-0 text-center md:text-left flex flex-col items-center md:items-start">
+                
+                <!-- Logo Oficial no Footer -->
+                <div class="mb-4">
+                    <img src="image_9daec3.png" alt="Pedro Teixeira Assessoria" class="h-12 md:h-16 object-contain">
+                </div>
+
+                <p class="text-[10px] tracking-widest uppercase mb-1">Assessor de Processos e Conformidade</p>
+                <p class="text-xs">Ribeirão Preto - SP e Região</p>
+            </div>
+            
+            <div class="text-center md:text-right">
+                 <p class="text-xs mt-2 text-gray-600 tracking-wide">
+                    &copy; 2026 Pedro H.P. Teixeira. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+<!-- Script para o Menu Mobile -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = btn.querySelector('i');
+        const links = document.querySelectorAll('.mobile-link');
+
+        // Abre e fecha o menu ao clicar no hambúrguer
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            
+            // Troca o ícone de barrinhas para um "X"
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // Fecha o menu automaticamente quando o usuário clica em um link (ex: Portfólio)
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+    </script>
+	
+</body>
+</html>
